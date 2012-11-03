@@ -5,7 +5,7 @@
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation; either version 2 of the License, or (at your
- * option) any later version.
+ * option) any later version.// do not add not learned spells/ passive spells
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
@@ -723,7 +723,7 @@ void WorldSession::HandlePetSpellAutocastOpcode(WorldPacket& recvPacket)
 
     SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(spellid);
     // do not add not learned spells/ passive spells
-    if (!pet->HasSpell(spellid) || spellInfo->IsAutocastable())
+    if (!pet->HasSpell(spellid) || !spellInfo->IsAutocastable())
         return;
 
     CharmInfo* charmInfo = pet->GetCharmInfo();
